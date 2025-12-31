@@ -249,9 +249,11 @@ main() {
         create_env_file
     fi
     
-    # Load .env file
+    # Load .env file safely
     if [ -f ".env" ]; then
-        export $(cat .env | grep -v '^#' | grep -v '^[[:space:]]*$' | xargs)
+        set -a
+        source .env
+        set +a
     fi
     
     echo ""

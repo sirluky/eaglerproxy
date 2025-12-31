@@ -31,9 +31,6 @@ services:
     volumes:
       # Persist skin cache
       - skin-cache:/app/build/skinCache
-      # Mount config files if you want to customize them directly
-      # - ./src/config.ts:/app/src/config.ts
-      # - ./src/plugins/EagProxyAAS/config.ts:/app/src/plugins/EagProxyAAS/config.ts
     restart: unless-stopped
     networks:
       - eaglerproxy-network

@@ -102,11 +102,17 @@ docker compose up -d --build
 
 ### Using Native Modules for Better Performance
 
-By default, the Docker setup uses `USE_NATIVES=false` for broader compatibility. If you want better performance and have a compatible system, you can use the native module build:
+By default, the Docker setup uses the standard Dockerfile without native modules for broader compatibility. If you want better performance and have a compatible system, you can create a custom docker-compose configuration:
 
-1. **Use the native Dockerfile:**
-   ```bash
-   docker compose -f docker-compose.yml build --build-arg DOCKERFILE=Dockerfile.native
+1. **Create a `docker-compose.native.yml` file:**
+   ```yaml
+   version: '3.8'
+   services:
+     eaglerproxy:
+       build:
+         context: .
+         dockerfile: Dockerfile.native
+       # ... rest of configuration same as docker-compose.yml
    ```
 
 2. **Update your `.env` file:**
@@ -114,9 +120,9 @@ By default, the Docker setup uses `USE_NATIVES=false` for broader compatibility.
    USE_NATIVES=true
    ```
 
-3. **Restart the container:**
+3. **Start with the native configuration:**
    ```bash
-   docker compose up -d
+   docker compose -f docker-compose.native.yml up -d
    ```
 
 Note: The native build requires build tools and may not work on all systems.

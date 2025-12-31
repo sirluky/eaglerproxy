@@ -47,7 +47,7 @@ export const config: Config = {
     },
     server: {
       host: process.env.SERVER_HOST || "127.0.0.1",
-      port: parseInt(process.env.SERVER_PORT || "25565"),
+      port: parseInt(process.env.SERVER_PORT || "1111"),
     },
     tls: undefined,
   },
