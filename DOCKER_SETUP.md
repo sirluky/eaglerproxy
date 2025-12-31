@@ -95,19 +95,27 @@ docker compose up -d --build
 
 For better performance (requires compatible system):
 
-1. Use the native Dockerfile:
+1. Build using the native Dockerfile:
    ```bash
-   docker compose build -f Dockerfile.native
+   docker build -f Dockerfile.native -t eaglerproxy:native .
    ```
 
-2. Set in `.env`:
+2. Create a custom docker-compose override file `docker-compose.native.yml`:
+   ```yaml
+   version: '3.8'
+   services:
+     eaglerproxy:
+       image: eaglerproxy:native
+   ```
+
+3. Set in `.env`:
    ```bash
    USE_NATIVES=true
    ```
 
-3. Restart:
+4. Start with both compose files:
    ```bash
-   docker compose up -d
+   docker compose -f docker-compose.yml -f docker-compose.native.yml up -d
    ```
 
 ## Troubleshooting
