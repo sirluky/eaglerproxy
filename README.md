@@ -100,6 +100,27 @@ docker compose down
 docker compose up -d --build
 ```
 
+### Using Native Modules for Better Performance
+
+By default, the Docker setup uses `USE_NATIVES=false` for broader compatibility. If you want better performance and have a compatible system, you can use the native module build:
+
+1. **Use the native Dockerfile:**
+   ```bash
+   docker compose -f docker-compose.yml build --build-arg DOCKERFILE=Dockerfile.native
+   ```
+
+2. **Update your `.env` file:**
+   ```bash
+   USE_NATIVES=true
+   ```
+
+3. **Restart the container:**
+   ```bash
+   docker compose up -d
+   ```
+
+Note: The native build requires build tools and may not work on all systems.
+
 ## 💻 Manual Installation
 
 If you prefer not to use Docker, you can run EaglerProxy directly on your system.
