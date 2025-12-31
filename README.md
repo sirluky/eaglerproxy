@@ -194,7 +194,7 @@ USE_NATIVES=true           # Use native modules for better performance
 
 # Default Server
 SERVER_HOST=127.0.0.1      # Default Minecraft server host
-SERVER_PORT=25565          # Default Minecraft server port
+SERVER_PORT=1111           # Default Minecraft server port
 
 # EagProxyAAS Plugin
 ALLOW_CUSTOM_PORTS=true    # Allow clients to specify custom ports

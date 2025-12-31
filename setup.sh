@@ -126,7 +126,7 @@ create_env_file() {
     echo ""
     echo -e "${YELLOW}=== Default Server Configuration ===${NC}"
     SERVER_HOST=$(ask_input "Default Minecraft server host" "127.0.0.1")
-    SERVER_PORT=$(ask_input "Default Minecraft server port" "25565")
+    SERVER_PORT=$(ask_input "Default Minecraft server port" "1111")
     
     echo ""
     echo -e "${YELLOW}=== EagProxyAAS Plugin Configuration ===${NC}"

@@ -37,7 +37,7 @@ All configuration is done via environment variables in the `.env` file:
 
 ### Server Settings
 - `SERVER_HOST` - Default Minecraft server host (default: 127.0.0.1)
-- `SERVER_PORT` - Default Minecraft server port (default: 25565)
+- `SERVER_PORT` - Default Minecraft server port (default: 1111)
 
 ### EagProxyAAS Plugin Settings
 - `ALLOW_CUSTOM_PORTS` - Allow clients to specify custom ports (default: true)
