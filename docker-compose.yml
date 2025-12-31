@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  eaglerproxy:
+    build: .
+    container_name: eaglerproxy
+    ports:
+      - "${BIND_PORT:-8080}:${BIND_PORT:-8080}"
+    environment:
+      # Adapter configuration
+      - ADAPTER_NAME=${ADAPTER_NAME:-EaglerProxy}
+      - BIND_HOST=${BIND_HOST:-0.0.0.0}
+      - BIND_PORT=${BIND_PORT:-8080}
+      - MAX_CONCURRENT_CLIENTS=${MAX_CONCURRENT_CLIENTS:-20}
+      - USE_NATIVES=${USE_NATIVES:-true}
+      
+      # Target server configuration
+      - SERVER_HOST=${SERVER_HOST:-127.0.0.1}
+      - SERVER_PORT=${SERVER_PORT:-25565}
+      
+      # EagProxyAAS plugin configuration
+      - EAGPROXYAAS_INTERNAL_PORT=${EAGPROXYAAS_INTERNAL_PORT:-25569}
+      - EAGPROXYAAS_INTERNAL_IP=${EAGPROXYAAS_INTERNAL_IP:-127.0.0.1}
+      - ALLOW_CUSTOM_PORTS=${ALLOW_CUSTOM_PORTS:-true}
+      - ALLOW_DIRECT_CONNECT=${ALLOW_DIRECT_CONNECT:-true}
+      - DISALLOW_HYPIXEL=${DISALLOW_HYPIXEL:-false}
+      - SHOW_DISCLAIMERS=${SHOW_DISCLAIMERS:-false}
+      - AUTH_ENABLED=${AUTH_ENABLED:-false}
+      - AUTH_PASSWORD=${AUTH_PASSWORD:-}
+      
+    volumes:
+      # Persist skin cache
+      - skin-cache:/app/build/skinCache
+      # Mount config files if you want to customize them directly
+      # - ./src/config.ts:/app/src/config.ts
+      # - ./src/plugins/EagProxyAAS/config.ts:/app/src/plugins/EagProxyAAS/config.ts
+    restart: unless-stopped
+    networks:
+      - eaglerproxy-network
+
+networks:
+  eaglerproxy-network:
+    driver: bridge
+
+volumes:
+  skin-cache:

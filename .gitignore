@@ -2,3 +2,5 @@ node_modules
 build
 .sourcehash
 .DS_Store
+.env
+skinCache

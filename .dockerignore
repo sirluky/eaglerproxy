@@ -1,0 +1,16 @@
+node_modules
+build
+.git
+.gitignore
+*.md
+.DS_Store
+.sourcehash
+.env
+.env.example
+docker-compose.yml
+Dockerfile
+.dockerignore
+replit.nix
+.replit
+replit_launch.sh
+replit_runtime
