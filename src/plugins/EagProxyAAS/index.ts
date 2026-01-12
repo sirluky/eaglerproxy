@@ -54,7 +54,7 @@ server.on("login", async (client) => {
       mode: ConnectType;
       session: any | null;
     } = undefined;
-    if (host != undefined && url.searchParams.size > 0) {
+    if (host != undefined && Array.from(url.searchParams).length > 0) {
       if (!config.allowDirectConnectEndpoints) {
         return proxyPlayer.disconnect(Enums.ChatColor.RED + "Direct connect endpoints are disabled");
       }
