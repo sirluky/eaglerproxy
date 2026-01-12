@@ -7,7 +7,7 @@ export const config: Config = {
   adapter: {
     name: process.env.ADAPTER_NAME || "EaglerProxy",
     bindHost: process.env.BIND_HOST || "0.0.0.0",
-    bindPort: parseInt(process.env.BIND_PORT || "8080"),
+    bindPort: 8765,
     maxConcurrentClients: parseInt(process.env.MAX_CONCURRENT_CLIENTS || "20"),
     // set this to false if you are unable to install sharp due to either the use of a platform that does not support native modules
     // or if you are unable to install the required dependencies. this will cause the proxy to use jimp instead of sharp, which may
@@ -46,8 +46,8 @@ export const config: Config = {
       originBlacklist: null,
     },
     server: {
-      host: process.env.SERVER_HOST || "127.0.0.1",
-      port: parseInt(process.env.SERVER_PORT || "1111"),
+      host: "mc.mineberry.org",
+      port: 25565,
     },
     tls: undefined,
   },
